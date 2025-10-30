@@ -42,6 +42,39 @@ Network: NAT
 
 ## E) Wire sharking
 
+Tässä tehtävässä siepattiin verkkoliikennettä tcpdump-komennolla samalla kun ajettiin Nmap-skannaus paikalliseen palvelimeen porttiin 80. Tavoitteena oli tallentaa skannauksen aikana syntyvä liikenne ja nähdä, mitä Nmap lähettää HTTP-palvelimelle.
+
+## Komentojen selitys
+– sudo tcpdump -i lo -w nmap_scan_lo.pcap port 80 &
+Tämä käynnistää tcpdumpin taustalle ja tallentaa kaiken portin 80 liikenteen loopback-liitännästä (lo) tiedostoon nmap_scan_lo.pcap.
+– sudo nmap -A -p 80 localhost
+Tämä ajaa Nmapin täydellisen skannauksen (-A) porttiin 80 paikallisessa koneessa. Se tunnistaa palvelun version, mahdolliset skriptit ja HTTP-otsikot.
+Skannauksen tuloksena saadaan:
+- Palvelu: Apache httpd 2.4.65 (Debian)
+- HTTP-otsikko: Apache/2.4.65 (Debian)
+- Sivun otsikko: Apache2 Debian Default Page: It works
+– sudo pkill -f "tcpdump -i lo"
+Tämä lopettaa tcpdumpin, kun skannaus on valmis.
+– 335 packets captured
+Tcpdump sai talteen 335 pakettia.
+
+Yksi HTTP-pyyntö, jonka Nmap lähetti:
+```
+GET /nmaplowercheck1761824260 HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+
+```
+Tämä kertoo, että Nmap lähettää HTTP-pyynnön, jossa on:
+- Erikoisosoite /nmaplowercheck... — Nmap käyttää tätä tunnistaakseen palvelimen vasteen.
+- User-Agent: Nmapin oma tunniste, joka paljastaa että kyseessä on Nmapin skriptimoottori.
+
+
+
+
+
+
+
 <img width="581" height="368" alt="pcap file creation and listening and recording packets" src="https://github.com/user-attachments/assets/6b384bc9-3538-4d35-a55c-a9f87e9b0cec" />
 
 <img width="552" height="212" alt="killed the process" src="https://github.com/user-attachments/assets/7326d368-2514-4ee2-9ed4-3f038cedba88" />
@@ -50,10 +83,15 @@ Network: NAT
 
 ## F) Net grep
 
-<img width="517" height="142" alt="textbased grab" src="https://github.com/user-attachments/assets/133a42a9-4331-4d63-8e8e-9668ed381305" />
+<img width="597" height="103" alt="nmap grep" src="https://github.com/user-attachments/assets/711d9274-2bbf-42cb-8ff6-5c19ccf92b77" />
+
+Koska unohdin aluksi ajaa komennon ennen kuin tein Nmap-skannauksen, en ehtinyt siepata sitä liikennettä, jossa sana "nmap" olisi näkynyt. Myöhemmin, kun tein skannauksen "stealth"-asetuksilla (eli piilotin käyttäjäagentin), Nmap ei enää lähettänyt liikenteessä sanaa "nmap". Siksi ngrep ei löytänyt mitään osumaa, ja näytti vain risuaitoja, joka tarkoittaa että se kyllä näkee liikennettä, mutta ei mitään mikä vastaisi hakusanaa.
 
 ## G) Agentti
-Löysin vastaavan komennon tästä linkistä: https://learning.oreilly.com/library/view/nmap-network-exploration/9781786467454/62ae3cc1-af7b-4046-89c1-a6eaa6c0b759.xhtml?utm_source=chatgpt.com.
+Käytin tätä kirjaa apuna komennon kirjoittamiseen: https://learning.oreilly.com/library/view/nmap-network-exploration/9781786467454/62ae3cc1-af7b-4046-89c1-a6eaa6c0b759.xhtml
+
+<img width="1207" height="101" alt="command to make the nmap look normal" src="https://github.com/user-attachments/assets/11868b60-8d53-47c8-97ae-7b6f93809735" />
+
 
 ## Mitä komento tekee?
 Komento käyttää Nmap-työkalua skannaamaan paikallisen koneen porttia 80, joka on HTTP-verkkopalveluiden oletusportti. Se käyttää kolmea skriptiä: http-title, joka hakee verkkosivun otsikon, http-headers, joka näyttää HTTP-vastauksen otsakkeet, ja http-server-header, joka paljastaa palvelimen ohjelmiston tiedot.

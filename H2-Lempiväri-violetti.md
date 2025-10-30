@@ -55,13 +55,24 @@ Network: NAT
 <img width="517" height="142" alt="textbased grab" src="https://github.com/user-attachments/assets/133a42a9-4331-4d63-8e8e-9668ed381305" />
 
 ## G) Agentti
+Löysin vastaavan komennon tästä linkistä: https://learning.oreilly.com/library/view/nmap-network-exploration/9781786467454/62ae3cc1-af7b-4046-89c1-a6eaa6c0b759.xhtml?utm_source=chatgpt.com.
+
+## Mitä komento tekee?
+Komento käyttää Nmap-työkalua skannaamaan paikallisen koneen porttia 80, joka on HTTP-verkkopalveluiden oletusportti. Se käyttää kolmea skriptiä: http-title, joka hakee verkkosivun otsikon, http-headers, joka näyttää HTTP-vastauksen otsakkeet, ja http-server-header, joka paljastaa palvelimen ohjelmiston tiedot.
+
+Skriptien mukana annetaan lisäparametri http.useragent , joka määrittää käyttäjäagentin eli sen, miltä selain näyttää palvelimelle. Tässä käytetään Chrome-selaimen käyttäjäagenttia Windows 10:llä, jotta palvelin vastaisi kuin oikealle selaimelle.
+
+Lopuksi -oN nmap_custom_ua.txt tallentaa skannauksen tulokset tiedostoon nimeltä nmap_custom_ua.txt normaalissa tekstimuodossa.
+
 
 <img width="1207" height="101" alt="command to make the nmap look normal" src="https://github.com/user-attachments/assets/fd94dee6-e816-421e-bbf7-afb16cfef01a" />
 
 ## H) Pienemmät jäljet
 
+Komennon suorituksen jälkeen, analysoitiin 20 riviä apache2:n access.log tiedostoa, jossa sitten näkyi selkeästi, ettei nmappia enään näkynyt.
 
 <img width="1197" height="437" alt="output of command that make nmap look normal" src="https://github.com/user-attachments/assets/caa64eed-0cfe-4315-8eb3-5232e3b48dbe" />
+
 
 <img width="1198" height="775" alt="command to listen and scan and kill the wireshark processs thing" src="https://github.com/user-attachments/assets/ffe0df7b-34f9-4603-909e-d0d80c96f9d2" />
 
@@ -70,6 +81,18 @@ Network: NAT
 <img width="760" height="143" alt="analyzing it with tshark" src="https://github.com/user-attachments/assets/39e6fcd9-1151-4dcb-82e9-ffabeeaf743f" />
 
 ## I) Hieman vaikeampi
+
+## Skriptin valinta ja muokkaus
+Valitsin muokattavaksi skriptin http-devframework.nse. Avasin Nmapin kirjastoista tiedoston nselib/http.lua ja etsin siellä määrittelyn, joka asettaa oletus‑User‑Agent‑otsakkeen (USER_AGENT). Korvasin alkuperäisen merkkijonon (jossa esiintyi “Nmap Scripting Engine”) tavallisella selaimen User‑Agentilla (esim. Mozilla/Chromium‑muotoinen merkkijono). Tallensin muutokset ja loin varmuuskopion alkuperäisestä tiedostosta ennen muokkausta.
+
+## Testiskannaus ja lokitarkastus
+Suoritin porttiskannauksen kohteena localhost (127.0.0.1) käyttäen HTTP‑skriptejä, kuten http-title. Tarkastin Apache‑palvelimen access.log‑tiedoston. Aiemmin skannauksissa esiintynyt User‑Agent‑kentän teksti “Nmap Scripting Engine” ei enää näkynyt; lokiriveissä näkyi ainoastaan selain‑tyylinen User‑Agent tai "-".
+
+## Sieppaus ja protokollan analyysi (Wireshark / pcap)
+Sieppasin loopback‑liikenteen tcpdumpilla ja avasin tallenteen Wiresharkissa. HTTP‑pyyntöjen Hypertext Transfer Protocol ‑osiosta tarkastin User-Agent‑otsakkeet. Kaikissa paketeissa User‑Agent oli selain‑tyylinen eikä sisältänyt merkkijonoa “nmap”.
+
+## Vahvistus lisäskannauksilla
+Suoritin toistuvia porttiskannauksia ja toistin loki‑ sekä pcap‑tarkastukset. Tulokset osoittivat johdonmukaisesti, että sana „nmap” ei enää näy missään Apache‑lokeissa eikä siepatussa verkkoliikenteessä.
 
 <img width="473" height="68" alt="the script we modified" src="https://github.com/user-attachments/assets/560863c1-3e35-46d3-9800-1ec1a8750c75" />
 

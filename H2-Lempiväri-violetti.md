@@ -57,3 +57,30 @@ Network: NAT
 ## G) Agentti
 
 <img width="1207" height="101" alt="command to make the nmap look normal" src="https://github.com/user-attachments/assets/fd94dee6-e816-421e-bbf7-afb16cfef01a" />
+
+## H) Pienemmät jäljet
+
+
+<img width="1197" height="437" alt="output of command that make nmap look normal" src="https://github.com/user-attachments/assets/caa64eed-0cfe-4315-8eb3-5232e3b48dbe" />
+
+<img width="1198" height="775" alt="command to listen and scan and kill the wireshark processs thing" src="https://github.com/user-attachments/assets/ffe0df7b-34f9-4603-909e-d0d80c96f9d2" />
+
+<img width="1181" height="527" alt="output of the ninja command" src="https://github.com/user-attachments/assets/36ff7af2-af14-46ee-b7a2-a05265477966" />
+
+<img width="760" height="143" alt="analyzing it with tshark" src="https://github.com/user-attachments/assets/39e6fcd9-1151-4dcb-82e9-ffabeeaf743f" />
+
+## I) Hieman vaikeampi
+
+<img width="473" height="68" alt="the script we modified" src="https://github.com/user-attachments/assets/560863c1-3e35-46d3-9800-1ec1a8750c75" />
+
+<img width="1375" height="55" alt="user-agent text change script" src="https://github.com/user-attachments/assets/86724e45-b6d7-4384-ad7d-b602ad5b5d48" />
+
+<img width="1537" height="553" alt="portscan output working no nmap is being displayed" src="https://github.com/user-attachments/assets/3b7f2f57-a43a-421c-8898-f767b80c8443" />
+
+<img width="827" height="235" alt="didnt find nmap" src="https://github.com/user-attachments/assets/215ee0bb-0895-4bd2-bd5f-b25d7536b0b4" />
+
+<img width="1278" height="763" alt="wireshark capture" src="https://github.com/user-attachments/assets/25df6d50-3f94-42bb-b53c-b14e08c84240" />
+
+<img width="1186" height="372" alt="doing port scan with uptime " src="https://github.com/user-attachments/assets/c1f80b37-cf5e-4dc8-bf4b-996aa94393df" />
+
+<img width="1586" height="830" alt="evidence of no nmap showing" src="https://github.com/user-attachments/assets/778f48db-d42e-4d6e-96d0-6ab2dcae4f45" />

@@ -208,18 +208,19 @@ Avasin Nmapin kirjastoista tiedoston nselib/http.lua ja etsin siellä määritte
 ## Testiskannaus ja lokitarkastus
 Suoritin porttiskannauksen kohteena localhost (127.0.0.1) käyttäen HTTP‑skriptejä, kuten http-title. Tarkastin Apache‑palvelimen access.log‑tiedoston. Aiemmin skannauksissa esiintynyt User‑Agent‑kentän teksti “Nmap Scripting Engine” ei enää näkynyt; lokiriveissä näkyi ainoastaan selain‑tyylinen User‑Agent tai "-".
 
+<img width="1537" height="553" alt="portscan output working no nmap is being displayed" src="https://github.com/user-attachments/assets/3b7f2f57-a43a-421c-8898-f767b80c8443" />
+
 ## Sieppaus ja protokollan analyysi (Wireshark / pcap)
 Sieppasin loopback‑liikenteen tcpdumpilla ja avasin tallenteen Wiresharkissa. HTTP‑pyyntöjen Hypertext Transfer Protocol ‑osiosta tarkastin User-Agent‑otsakkeet. Kaikissa paketeissa User‑Agent oli selain‑tyylinen eikä sisältänyt merkkijonoa “nmap”.
+
+<img width="827" height="235" alt="didnt find nmap" src="https://github.com/user-attachments/assets/215ee0bb-0895-4bd2-bd5f-b25d7536b0b4" />
+<img width="1278" height="763" alt="wireshark capture" src="https://github.com/user-attachments/assets/25df6d50-3f94-42bb-b53c-b14e08c84240" />
 
 ## Vahvistus lisäskannauksilla
 Suoritin toistuvia porttiskannauksia ja toistin loki‑ sekä pcap‑tarkastukset. Tulokset osoittivat johdonmukaisesti, että sana „nmap” ei enää näy missään Apache‑lokeissa eikä siepatussa verkkoliikenteessä.
 
 
-<img width="1537" height="553" alt="portscan output working no nmap is being displayed" src="https://github.com/user-attachments/assets/3b7f2f57-a43a-421c-8898-f767b80c8443" />
 
-<img width="827" height="235" alt="didnt find nmap" src="https://github.com/user-attachments/assets/215ee0bb-0895-4bd2-bd5f-b25d7536b0b4" />
-
-<img width="1278" height="763" alt="wireshark capture" src="https://github.com/user-attachments/assets/25df6d50-3f94-42bb-b53c-b14e08c84240" />
 
 <img width="1186" height="372" alt="doing port scan with uptime " src="https://github.com/user-attachments/assets/c1f80b37-cf5e-4dc8-bf4b-996aa94393df" />
 

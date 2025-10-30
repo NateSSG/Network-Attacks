@@ -80,6 +80,14 @@ Komennon suorituksen jälkeen, analysoitiin 20 riviä apache2:n access.log tiedo
 
 <img width="760" height="143" alt="analyzing it with tshark" src="https://github.com/user-attachments/assets/39e6fcd9-1151-4dcb-82e9-ffabeeaf743f" />
 
+Tämä komento analysoi kaapatun verkkoliikenteen pcap-tiedostoa ja etsii HTTP-pyynnöissä käytettyjä käyttäjäagentteja (eli selaimen tunnistetietoja).
+
+– tshark -r /tmp/nmap_custom_ua.pcap: Avaa pcap-tiedoston, joka sisältää verkkoliikenteen tallenteen.
+
+– -T fields -e http.user_agent: Tulostaa vain käyttäjäagentti-kentän jokaisesta HTTP-pyynnöstä.
+
+– | sort | uniq -c: Järjestää käyttäjäagentit aakkosjärjestykseen ja laskee, kuinka monta kertaa kukin esiintyy.
+
 ## I) Hieman vaikeampi
 
 ## Skriptin valinta ja muokkaus

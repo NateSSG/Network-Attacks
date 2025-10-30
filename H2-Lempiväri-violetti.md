@@ -29,15 +29,31 @@ Network: NAT
 
 <img width="650" height="471" alt="portscan using nmap" src="https://github.com/user-attachments/assets/5644af27-589f-435d-8024-6576084366c9" />
 
-## C)
+## C) Skriptit
 <img width="355" height="244" alt="eeeeee" src="https://github.com/user-attachments/assets/6784a253-5231-44c6-84fc-3a3828f8c402" />
 
-## D)
+## D) Jäljet lokissa
 
-<img width="1427" height="442" alt="all the logs we found from the command" src="https://github.com/user-attachments/assets/7f6e35d3-ceb5-4737-8da9-68bb7acd15a3" />
+<img width="1657" height="461" alt="command to check all access logs" src="https://github.com/user-attachments/assets/8cffbf03-15ff-4760-98a6-e50d32403ace" />
 
 <img width="727" height="91" alt="ip based scan" src="https://github.com/user-attachments/assets/652a054a-75df-4698-8eca-db449bf16a5d" />
 
 <img width="517" height="142" alt="textbased grab" src="https://github.com/user-attachments/assets/f056bc05-4f31-4bbe-b184-cce9e39ac1ee" />
 
 <img width="822" height="207" alt="user-agent found in the command" src="https://github.com/user-attachments/assets/e488b9d1-8174-4749-ac9f-ca3b86da4a75" />
+
+## E) Wire sharking
+
+<img width="581" height="368" alt="pcap file creation and listening and recording packets" src="https://github.com/user-attachments/assets/6b384bc9-3538-4d35-a55c-a9f87e9b0cec" />
+
+<img width="552" height="212" alt="killed the process" src="https://github.com/user-attachments/assets/7326d368-2514-4ee2-9ed4-3f038cedba88" />
+
+<img width="817" height="186" alt="useragent v2" src="https://github.com/user-attachments/assets/cb34813b-aac3-48e7-9c0f-b1fec9a5bf43" />
+
+## F) Net grep
+
+<img width="517" height="142" alt="textbased grab" src="https://github.com/user-attachments/assets/133a42a9-4331-4d63-8e8e-9668ed381305" />
+
+## G) Agentti
+
+<img width="1207" height="101" alt="command to make the nmap look normal" src="https://github.com/user-attachments/assets/fd94dee6-e816-421e-bbf7-afb16cfef01a" />

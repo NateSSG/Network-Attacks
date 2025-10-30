@@ -19,9 +19,19 @@ Network: NAT
 
 <img width="583" height="85" alt="apache2 installation" src="https://github.com/user-attachments/assets/992e0384-427b-431d-bd8d-7e205d16b924" />
 
+apache2 lataus
+
 <img width="645" height="173" alt="enabling apache2" src="https://github.com/user-attachments/assets/5aaf1aa4-b07f-4aa1-b1de-216a46d8af9a" />
+
+apache2 käynnistys
+
 <img width="397" height="272" alt="curling apache2 from terminal 200ok" src="https://github.com/user-attachments/assets/52b36f44-be7b-492c-8b6d-2eca660caa1e" />
+
+Tämä tuloste kertoo, että Apache-palvelin toimii oikein ja vastaa HTTP-pyyntöihin. Se antaa perustiedot sivusta, kuten sen koon, muokkausajan ja tyypin. Komento on hyödyllinen palvelimen tilan tarkistamiseen ilman että koko sivua tarvitsee ladata.
+
 <img width="660" height="76" alt="log from apache2" src="https://github.com/user-attachments/assets/e2afe468-a773-415e-976f-9fb4ca93c87a" />
+
+Apache-lokirivi kertoo, että koneeni teki HTTP HEAD -pyynnön juurisivulle  klo 16:56:10, ja palvelin vastasi onnistuneesti. Käytin curl -komentoa, joten käyttäjäagenttina näkyy curl/8.13.0. Tämä on hyvä esimerkki siitä, miten Apache tallentaa jokaisen HTTP-pyynnön lokiin.
 
 ## B) Nmapped
 

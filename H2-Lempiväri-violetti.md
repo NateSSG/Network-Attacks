@@ -192,7 +192,18 @@ Tämä komento analysoi kaapatun verkkoliikenteen pcap-tiedostoa ja etsii HTTP-p
 ## I) Hieman vaikeampi
 
 ## Skriptin valinta ja muokkaus
-Valitsin muokattavaksi skriptin http-devframework.nse. Avasin Nmapin kirjastoista tiedoston nselib/http.lua ja etsin siellä määrittelyn, joka asettaa oletus‑User‑Agent‑otsakkeen (USER_AGENT). Korvasin alkuperäisen merkkijonon (jossa esiintyi “Nmap Scripting Engine”) tavallisella selaimen User‑Agentilla (esim. Mozilla/Chromium‑muotoinen merkkijono). Tallensin muutokset ja loin varmuuskopion alkuperäisestä tiedostosta ennen muokkausta.
+
+<img width="473" height="68" alt="the script we modified" src="https://github.com/user-attachments/assets/560863c1-3e35-46d3-9800-1ec1a8750c75" />
+
+Valitsin muokattavaksi skriptin http-devframework.nse. Löysin tietoa skriptistä näiltä sivuilta: https://www.infosecmatter.com/nmap-nse-library/?nse=http-devframework, https://seclists.org/nmap-dev/2013/q3/448
+
+
+
+
+
+Avasin Nmapin kirjastoista tiedoston nselib/http.lua ja etsin siellä määrittelyn, joka asettaa oletus‑User‑Agent‑otsakkeen (USER_AGENT). Korvasin alkuperäisen merkkijonon (jossa esiintyi “Nmap Scripting Engine”) tavallisella selaimen User‑Agentilla (esim. Mozilla/Chromium‑muotoinen merkkijono). Tallensin muutokset ja loin varmuuskopion alkuperäisestä tiedostosta ennen muokkausta.
+
+<img width="1375" height="55" alt="user-agent text change script" src="https://github.com/user-attachments/assets/86724e45-b6d7-4384-ad7d-b602ad5b5d48" />
 
 ## Testiskannaus ja lokitarkastus
 Suoritin porttiskannauksen kohteena localhost (127.0.0.1) käyttäen HTTP‑skriptejä, kuten http-title. Tarkastin Apache‑palvelimen access.log‑tiedoston. Aiemmin skannauksissa esiintynyt User‑Agent‑kentän teksti “Nmap Scripting Engine” ei enää näkynyt; lokiriveissä näkyi ainoastaan selain‑tyylinen User‑Agent tai "-".
@@ -203,9 +214,6 @@ Sieppasin loopback‑liikenteen tcpdumpilla ja avasin tallenteen Wiresharkissa. 
 ## Vahvistus lisäskannauksilla
 Suoritin toistuvia porttiskannauksia ja toistin loki‑ sekä pcap‑tarkastukset. Tulokset osoittivat johdonmukaisesti, että sana „nmap” ei enää näy missään Apache‑lokeissa eikä siepatussa verkkoliikenteessä.
 
-<img width="473" height="68" alt="the script we modified" src="https://github.com/user-attachments/assets/560863c1-3e35-46d3-9800-1ec1a8750c75" />
-
-<img width="1375" height="55" alt="user-agent text change script" src="https://github.com/user-attachments/assets/86724e45-b6d7-4384-ad7d-b602ad5b5d48" />
 
 <img width="1537" height="553" alt="portscan output working no nmap is being displayed" src="https://github.com/user-attachments/assets/3b7f2f57-a43a-421c-8898-f767b80c8443" />
 

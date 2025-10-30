@@ -17,9 +17,38 @@ Network: NAT
 
 ## A) Apache log
 
-
 <img width="583" height="85" alt="apache2 installation" src="https://github.com/user-attachments/assets/992e0384-427b-431d-bd8d-7e205d16b924" />
+
+Ensiksi etsin apache2 access logista lokeja jotka sisältää sanan nmap. 
+
 <img width="645" height="173" alt="enabling apache2" src="https://github.com/user-attachments/assets/5aaf1aa4-b07f-4aa1-b1de-216a46d8af9a" />
+
+## Mitä kukin osa tekee:
+
+- sudo — aja komento järjestelmänvalvojan oikeuksin (tarvitaan, koska lokit ovat root-oikeuksin).
+
+- awk '{print $1}' /var/log/apache2/access.log* — tulostaa jokaisesta lokirivistä ensimmäisen kentän (Apache-access.log-muodossa ensimmäinen kenttä on yleensä asiakkaan IP).
+
+- sort — lajittelee kaikki IP-osoitteet aakkosjärjestykseen (tarvitaan uniq-komennon käyttöä varten).
+
+- uniq -c — laskee peräkkäisten, samanlaisten rivien esiintymät (eli laskee kunkin IP:n pyyntöjen määrän).
+
+- sort -nr — lajittelee tuloksen numeerisesti laskevaan järjestykseen (suuremmasta pienempään).
+
+- head — näyttää ensimmäiset rivit (yleensä top-10, tässä oletus 10).
+
+## Selitys:
+
+- 127.0.0.1 on tehnyt 28 pyyntöä (yhteensä tutkituissa access.log* -tiedostoissa).
+
+- ::1 (IPv6 loopback) on tehnyt 1 pyynnön.
+
+- Tämä vahvistaa, että eniten liikennettä on tullut localhostista (odotettavaa, kun skannasit paikallista palvelinta).
+
+## Mitä tästä tulisi ymmärtää:
+
+- Porttiskannaukset ja NSE-skriptit usein aiheuttavat suuria määriä pyyntöjä lyhyessä ajassa samalta IP:ltä (tässä localhost). Tämä käsky on hyvä nopea tapa löytää mahdollinen skannaaja /      melun lähde lokeista.
+
 <img width="397" height="272" alt="curling apache2 from terminal 200ok" src="https://github.com/user-attachments/assets/52b36f44-be7b-492c-8b6d-2eca660caa1e" />
 <img width="660" height="76" alt="log from apache2" src="https://github.com/user-attachments/assets/e2afe468-a773-415e-976f-9fb4ca93c87a" />
 

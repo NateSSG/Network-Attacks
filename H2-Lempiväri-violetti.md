@@ -36,8 +36,6 @@ Network: NAT
 
 <img width="727" height="91" alt="ip based scan" src="https://github.com/user-attachments/assets/652a054a-75df-4698-8eca-db449bf16a5d" />
 
-<img width="517" height="142" alt="textbased grab" src="https://github.com/user-attachments/assets/f056bc05-4f31-4bbe-b184-cce9e39ac1ee" />
-
 <img width="822" height="207" alt="user-agent found in the command" src="https://github.com/user-attachments/assets/e488b9d1-8174-4749-ac9f-ca3b86da4a75" />
 
 ## E) Wire sharking

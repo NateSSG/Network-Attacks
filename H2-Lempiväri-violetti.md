@@ -19,9 +19,48 @@ Network: NAT
 
 <img width="583" height="85" alt="apache2 installation" src="https://github.com/user-attachments/assets/992e0384-427b-431d-bd8d-7e205d16b924" />
 
-Ensiksi etsin apache2 access logista lokeja jotka sisältää sanan nmap. 
-
 <img width="645" height="173" alt="enabling apache2" src="https://github.com/user-attachments/assets/5aaf1aa4-b07f-4aa1-b1de-216a46d8af9a" />
+<img width="397" height="272" alt="curling apache2 from terminal 200ok" src="https://github.com/user-attachments/assets/52b36f44-be7b-492c-8b6d-2eca660caa1e" />
+<img width="660" height="76" alt="log from apache2" src="https://github.com/user-attachments/assets/e2afe468-a773-415e-976f-9fb4ca93c87a" />
+
+## B) Nmapped
+
+<img width="650" height="471" alt="portscan using nmap" src="https://github.com/user-attachments/assets/5644af27-589f-435d-8024-6576084366c9" />
+
+## Mitä komento tekee
+- nmap -A: Ajaa laajan skannauksen, joka sisältää:
+- Palvelun tunnistuksen
+- Käyttöjärjestelmän tunnistuksen
+- Skriptien ajon (NSE)
+- Tracerouten (reitityksen)
+- -p 80: Skannaa vain portin 80, joka on HTTP-palveluiden oletusportti.
+- localhost: Kohteena on oma kone.
+- -oN nmap_A_localhost.txt: Tallentaa tulokset tiedostoon.
+
+## Skannauksen tulokset
+- Host is up: Palvelin vastaa, eli se on käynnissä.
+- Portti 80/tcp on auki: HTTP-palvelu toimii.
+- Palvelu: Apache HTTP Server, versio 2.4.65 (Debian).
+- Sivun otsikko: "Apache2 Debian Default Page: It works" → Tämä on Apache-palvelimen oletussivu.
+- HTTP-header: Paljastaa palvelimen version ja käyttöjärjestelmän.
+- OS-tunnistus: Nmap arvioi, että kone käyttää Linuxin versiota 2.6.x tai 5.x.
+- Etäisyys: 0 hops → Skannaus tehtiin paikallisesti (ei verkon yli).
+- Varoitus: OSScan ei ole täysin luotettava, koska vain yksi portti oli auki eikä yhtään suljettua → OS-tunnistus toimii paremmin, kun on useita portteja.
+
+Skannaus paljasti, että oma koneeni pyörittää Apache-verkkopalvelinta portissa 80, ja palvelin vastaa HTTP-pyyntöihin normaalisti. Nmapin laaja skannaus tunnisti palvelun version, sivun otsikon ja arvioi käyttöjärjestelmän. Koska skannaus tehtiin vain yhdelle portille, OS-tunnistus ei ole täysin tarkka.
+
+## C) Skriptit
+<img width="355" height="244" alt="eeeeee" src="https://github.com/user-attachments/assets/6784a253-5231-44c6-84fc-3a3828f8c402" />
+
+Automaattiset skriptit, jotka olivat päällä ovat: http-title, http-server-header ja http-headers.
+
+## D) Jäljet lokissa
+
+<img width="1657" height="461" alt="command to check all access logs" src="https://github.com/user-attachments/assets/8cffbf03-15ff-4760-98a6-e50d32403ace" />
+
+Ensiksi etsin apache2 access logista lokeja jotka sisältää sanan nmap, jos ei ole se tulostaa "No direct nmap character"
+
+<img width="727" height="91" alt="ip based scan" src="https://github.com/user-attachments/assets/652a054a-75df-4698-8eca-db449bf16a5d" />
 
 ## Mitä kukin osa tekee:
 
@@ -48,24 +87,13 @@ Ensiksi etsin apache2 access logista lokeja jotka sisältää sanan nmap.
 ## Mitä tästä tulisi ymmärtää:
 
 - Porttiskannaukset ja NSE-skriptit usein aiheuttavat suuria määriä pyyntöjä lyhyessä ajassa samalta IP:ltä (tässä localhost). Tämä käsky on hyvä nopea tapa löytää mahdollinen skannaaja /      melun lähde lokeista.
-
-<img width="397" height="272" alt="curling apache2 from terminal 200ok" src="https://github.com/user-attachments/assets/52b36f44-be7b-492c-8b6d-2eca660caa1e" />
-<img width="660" height="76" alt="log from apache2" src="https://github.com/user-attachments/assets/e2afe468-a773-415e-976f-9fb4ca93c87a" />
-
-## B) Nmapped
-
-<img width="650" height="471" alt="portscan using nmap" src="https://github.com/user-attachments/assets/5644af27-589f-435d-8024-6576084366c9" />
-
-## C) Skriptit
-<img width="355" height="244" alt="eeeeee" src="https://github.com/user-attachments/assets/6784a253-5231-44c6-84fc-3a3828f8c402" />
-
-## D) Jäljet lokissa
-
-<img width="1657" height="461" alt="command to check all access logs" src="https://github.com/user-attachments/assets/8cffbf03-15ff-4760-98a6-e50d32403ace" />
-
-<img width="727" height="91" alt="ip based scan" src="https://github.com/user-attachments/assets/652a054a-75df-4698-8eca-db449bf16a5d" />
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <img width="822" height="207" alt="user-agent found in the command" src="https://github.com/user-attachments/assets/e488b9d1-8174-4749-ac9f-ca3b86da4a75" />
+
+Kyseessä on paketin dekoodattu HTTP-request. Siitä näkyy metodi, URI ja otsakkeet kuten Host, Depth (PROPFIND), User-Agent.
+
+Tämä antaa varman todisteen siitä, että skanneri lähetti kyseisen User-Agent-kentän — toisin sanoen nmap esiintyi oikeasti HTTP-pyynnössä.
 
 ## E) Wire sharking
 
@@ -178,3 +206,9 @@ Suoritin toistuvia porttiskannauksia ja toistin loki‑ sekä pcap‑tarkastukse
 <img width="1186" height="372" alt="doing port scan with uptime " src="https://github.com/user-attachments/assets/c1f80b37-cf5e-4dc8-bf4b-996aa94393df" />
 
 <img width="1586" height="830" alt="evidence of no nmap showing" src="https://github.com/user-attachments/assets/778f48db-d42e-4d6e-96d0-6ab2dcae4f45" />
+
+## Lähteet
+
+
+- <a href="https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/#h2-lempivari-violetti"> lempivari-violetti.</a>,
+- <a href="https://learning.oreilly.com/library/view/nmap-network-exploration/9781786467454/8bd39499-1b35-4df4-befb-1c9a6772db6e.xhtml">Nmap: Network Exploration and Security Auditing Cookbook </a>,

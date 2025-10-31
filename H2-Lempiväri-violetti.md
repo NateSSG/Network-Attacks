@@ -14,6 +14,14 @@ Disk: 35 GB
 
 Network: NAT
 
+## Tiivistys
+
+## Pyramid Of Pain
+Tuskan pyramidi kuvaa eri tasoisia hyökkäyksen tunnisteita (esim. hashit, IP-osoitteet, domainit, työkalut, TTP:t) ja sitä, kuinka paljon “kipua” niiden estäminen aiheuttaa hyökkääjälle. Mitä korkeammalle pyramidissa mennään (kohti TTP:itä), sitä vaikeampaa ja kalliimpaa hyökkääjän on mukautua.
+
+## Diamond Model
+Timanttimalli esittää kyberhyökkäyksen neljän keskeisen elementin. Hyökkääjän (adversary), kyvykkyyden (capability), infrastruktuurin (infrastructure) ja uhrin (victim), väliset suhteet, joita analysoimalla voidaan ymmärtää ja jäljittää hyökkäyksen kokonaiskuva.
+
 
 ## A) Apache log
 

@@ -239,3 +239,7 @@ Suoritin toistuvia porttiskannauksia ja toistin loki‑ sekä pcap‑tarkastukse
 
 - <a href="https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/#h2-lempivari-violetti"> lempivari-violetti.</a>,
 - <a href="https://learning.oreilly.com/library/view/nmap-network-exploration/9781786467454/8bd39499-1b35-4df4-befb-1c9a6772db6e.xhtml">Nmap: Network Exploration and Security Auditing Cookbook </a>,
+- <a href="http://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html">Pyramid of Pain</a>,
+- <a href="https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf">Cyber Kill Chain</a>,
+- <a href="https://www.threatintel.academy/wp-content/uploads/2020/07/diamond-model.pdf">Diamond Model</a>,
+- <a href="https://attack.mitre.org/">ATT&CK</a>,

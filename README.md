@@ -1,2 +1,2 @@
-# network-attacks
-Homework reports for network attacks course taught by Tero Karvinen
+# Network Attacks
+Homework reports for Network Attacks course taught by Tero Karvinen

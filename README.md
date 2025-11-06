@@ -1,2 +1,2 @@
 # Network Attacks
-Homework reports for Network Attacks course taught by Tero Karvinen & Lari Isoanntila
+Homework reports for Network Attacks course taught by Tero Karvinen & Lari Iso-Anttila

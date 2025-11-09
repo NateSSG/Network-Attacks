@@ -17,3 +17,8 @@ Myöhemmät tutkimukset FBI:n ja muiden kansainvälisten viranomaisten toimesta 
 Ironisesti WannaCryn menestys ei perustunut Pohjois-Korean tekniseen nerouteen, vaan Yhdysvaltojen omaan tietoturvavälineistöön. Microsoftin johtaja Brad Smith kritisoi myöhemmin NSA:ta siitä, että se oli salannut haavoittuvuuksia ilmoittamatta niistä Microsoftille. Hän vertasi tapausta “digitaalisten aseiden varastamiseen”. Hyökkäys nosti esiin eettisen kysymyksen: kuka on vastuussa, kun valtiolliset työkalut kääntyvät koko maailmaa vastaan?
 
 Lopulta WannaCry ei tuottanut juurikaan rahaa – alle 200 000 dollaria – mutta sen seuraukset olivat valtavat. Tapaus muutti kyberturvallisuuden käsitystä pysyvästi ja korosti ohjelmistopäivitysten, kansainvälisen yhteistyön ja vastuullisen haavoittuvuuksien hallinnan merkitystä. WannaCry muistuttaa, että digitaalisessa maailmassa yksikin vuotanut koodinpätkä voi lamauttaa koko yhteiskunnan.
+
+## Lähteet
+
+
+https://www.youtube.com/watch?v=_OmpRDWRT9U&t=473s

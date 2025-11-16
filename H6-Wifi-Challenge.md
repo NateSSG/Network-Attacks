@@ -1,4 +1,6 @@
-# Ympäristö
+## Harjoitus 6 ( Wifi Challenge ) | Nathaniel Ssendagire 16.11.2025   
+
+## Ympäristö
 
 OS: Linux Debian
 
@@ -14,9 +16,41 @@ Network: NAT
 
 ## Harjoitus 1
 
+Tehtävä: What is the channel that the wifi-global Access Point is currently using? 
+
+<img width="1157" height="435" alt="wifi global access point challenge " src="https://github.com/user-attachments/assets/d7b41b2e-2b53-4165-9d7f-46ae20eb45e7" />
+
+Komennolla: sudo airodump-ng --band a --essid "wifi-global"# wlan0mon, etsii 5ghz:llä wifin nimeltä "wifi-globalin" joka näyttää vain sen tiedot. Tehtävänä oli saada millä kanavalla se operoi ja se on 44.
+
+
 ## Harjoitus 2
 
 ## Harjoitus 3
+
+## Harjoitus 7
+
+Tässä tehtvässä käytin besside-ng komentoa. Tämä komento hankkii tietyn verkon avaimen.
+
+<img width="1204" height="653" alt="key cracked" src="https://github.com/user-attachments/assets/0fe6be63-bd14-4c0a-9e99-e110a9079b57" />
+
+Tämän jälkeen sammutettiin interface ja laitettiin se monitor moodista managed moodiin jotta voidaan ottaa yhteyttä verkkoon.
+
+<img width="511" height="70" alt="setting the int to managed instead of monitor" src="https://github.com/user-attachments/assets/3135bbc2-d127-49a6-b257-ce520a11a89b" />
+
+Seuraavaksi otettiin yhteys wifi-old verkkoon. Salasana on se avain jonka saimme besside-ng komennolla, mutta vain ilman niitä kaksoispisteitä välissä.
+
+<img width="820" height="96" alt="connecting to wifi-old" src="https://github.com/user-attachments/assets/4f09285a-4026-446d-b050-dceb04db1572" />
+
+Saatiin yhteys verkkoon wlan0 liitäntään. Käytin ip route komentoa nähdäkseni, mikä on se wlan0 liitännän ip osoite.
+
+<img width="746" height="176" alt="image" src="https://github.com/user-attachments/assets/9c18242f-e81c-4cec-8417-e8624385d3e0" />
+
+Kirjoitin wlan0 liitännän ip osoitteen selaimeen ja tadaa saatiin lippu. Testasin ihan perus admin admin salasanaa ja pääsin sillä sisään.
+
+<img width="1077" height="676" alt="we cracked it" src="https://github.com/user-attachments/assets/d5811dbb-36db-4073-a668-37477864302a" />
+
+<img width="1073" height="454" alt="admin admin" src="https://github.com/user-attachments/assets/c7ccfd14-218b-4830-b182-8638bcbe4759" />
+
 
 ## Mitä opin
 

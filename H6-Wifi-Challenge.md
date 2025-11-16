@@ -72,23 +72,23 @@ Seuraavaksi
 
 Tehtävä: What is the flag on the wifi-old AP website?
 
-Tässä tehtvässä käytin besside-ng komentoa. Tämä komento hankkii tietyn verkon avaimen.
+Tässä tehtävässä käytin besside-ng -komentoa. Tämä työkalu automatisoi WEP- ja WPA-verkkojen murtamisen keräämällä tarvittavia paketteja ja purkamalla avaimen automaattisesti. Kun avain oli saatu, suljin langattoman liitännän ja vaihdoin sen monitor-tilasta takaisin managed-tilaan, jotta pystyin muodostamaan normaalin verkkoyhteyden. Seuraavaksi yhdistyin wifi-old -verkkoon käyttäen besside-ng:n tuottamaa salasanaa (sama avain, mutta ilman kaksoispisteitä).
+
+Yhteyden muodostuttua wlan0-liitäntään käytin komentoa ip route selvittääkseni, mikä IP-osoite oli yhteyden oletusyhdyskäytävä. Kun syötin tämän osoitteen selaimeen, avautui reitittimen hallintasivu. Kirjauduin sisään oletustunnuksilla admin/admin, minkä jälkeen sivulta löytyi tehtävässä pyydetty lippu (flag).
 
 <img width="1204" height="653" alt="key cracked" src="https://github.com/user-attachments/assets/0fe6be63-bd14-4c0a-9e99-e110a9079b57" />
 
-Tämän jälkeen sammutettiin interface ja laitettiin se monitor moodista managed moodiin jotta voidaan ottaa yhteyttä verkkoon.
+
 
 <img width="511" height="70" alt="setting the int to managed instead of monitor" src="https://github.com/user-attachments/assets/3135bbc2-d127-49a6-b257-ce520a11a89b" />
 
-Seuraavaksi otettiin yhteys wifi-old verkkoon. Salasana on se avain jonka saimme besside-ng komennolla, mutta vain ilman niitä kaksoispisteitä välissä.
 
 <img width="820" height="96" alt="connecting to wifi-old" src="https://github.com/user-attachments/assets/4f09285a-4026-446d-b050-dceb04db1572" />
 
-Saatiin yhteys verkkoon wlan0 liitäntään. Käytin ip route komentoa nähdäkseni, mikä on se wlan0 liitännän ip osoite.
+
 
 <img width="746" height="176" alt="image" src="https://github.com/user-attachments/assets/9c18242f-e81c-4cec-8417-e8624385d3e0" />
 
-Kirjoitin wlan0 liitännän ip osoitteen selaimeen ja tadaa saatiin lippu. Testasin ihan perus admin admin salasanaa ja pääsin sillä sisään.
 
 <img width="1077" height="676" alt="we cracked it" src="https://github.com/user-attachments/assets/d5811dbb-36db-4073-a668-37477864302a" />
 
@@ -97,5 +97,12 @@ Kirjoitin wlan0 liitännän ip osoitteen selaimeen ja tadaa saatiin lippu. Testa
 
 ## Mitä opin
 
+Tässä harjoituksessa opin todella paljon verkkoturvallisuudesta ja siitä, kuinka yllättävän helppoa verkkoihin hyökkääminen voi olla, jos suojaukset ovat heikkoja. Ymmärsin esimerkiksi, miten vaarallista on käyttää julkisia Wi‑Fi‑verkkoja ilman VPN:ää — kuka tahansa samassa verkossa voi yrittää siepata liikennettä tai pakottaa laitteen tekemään handshake‑yhteyksiä. Opin myös, kuinka tehokkaita eri työkalut voivat olla: monet hyökkäykset, kuten sanalistabruteforce, eivät vaadi hyökkääjältä juuri mitään, vaan ohjelma tekee kaiken työn käyttäen tavallisia salasanalistoja.
+
+Sain myös paljon uutta kokemusta erilaisista komennoista ja työkaluista, kuten besside-ng, aircrack-ng, mdk4 ja airodump-ng. Harjoitus näytti konkreettisesti, miten hyökkäykset toimivat teknisesti, ja mitä vaiheita niihin kuuluu.
+
+Samalla opin myös, miten oma verkko voidaan suojata paremmin. Hyviä käytäntöjä ovat esimerkiksi vahvan ja pitkän salasanan käyttäminen, WPA3-salauksen valitseminen (tai vähintään WPA2), WPS:n poistaminen käytöstä, reitittimen ohjelmiston päivittäminen sekä vierasverkon eristäminen muusta verkosta. Lisäksi on tärkeää käyttää VPN:ää julkisissa verkoissa ja välttää yhdistämästä automaattisesti tuntemattomiin Wi‑Fi-verkkoihin.
+
 ## Lähteet
+https://lab.wifichallenge.com/
 

@@ -27,7 +27,19 @@ Komennolla: sudo airodump-ng --band a --essid "wifi-global"# wlan0mon, etsii 5gh
 
 ## Harjoitus 3
 
+## Harjoitus 4
+
+Tehtävä: What is the ESSID of the hidden AP (mac F0:9F:C2:6A:88:26)? 
+
+Ensiksi käytin komentoa airodump-ng wlan0 komentoa, tämä etsii verkkoja wlan0 liitännässä. Tällä kertaa meidän piti etsiä tämän mac osoitteen (mac F0:9F:C2:6A:88:26) vastaava kanava, jotta voidaan eristää skannauksen aluetta.
+
+<img width="473" height="295" alt="switching the channel" src="https://github.com/user-attachments/assets/a3a2bf76-b7e9-4901-b300-456b39ada268" />
+
+Seuraavaksi 
+
 ## Harjoitus 7
+
+Tehtävä: What is the flag on the wifi-old AP website?
 
 Tässä tehtvässä käytin besside-ng komentoa. Tämä komento hankkii tietyn verkon avaimen.
 

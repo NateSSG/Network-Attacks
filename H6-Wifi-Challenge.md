@@ -43,7 +43,12 @@ En saanut ESSID:tä. Olin ladannut rockyou.txt myös mutta siinä kesti niin kau
 
 ## Mitä komento tekee? 
 
-mdk4 on työkali tämmöiseen bruteforce hommaan niin tässä me kerrotaan että hei bruteforcee tämä mac osoite liitännästä wlan0. P tarkoittaa probe eli lähettää probe‑pyyntöjä testatakseen tukiaseman (AP:n) vakautta; probe‑pyynnöt ovat Wi‑Fi‑viestejä, joilla laite kysyy ympäristöstä “onko täällä verkkoja?”, ja niiden avulla voidaan myös paljastaa piilotettuja SSID‑nimiä. -t tarkoittaa kohdetta (target) eli tässä tapauksessa (F0:9F:C2:6A:88:26). - f tarkoittaa file (tiedostoa), tässä käytin rockyou-top100000.txt tiedostoa.
+MDK4 on työkalu, jota voidaan käyttää erilaisten Wi‑Fi‑verkkojen testaamiseen ja esimerkiksi SSID‑bruteforce‑hyökkäyksiin. Tässä komennossa kerromme työkalulle, että sen tulee suorittaa bruteforce‑toimintaa MAC‑osoitteeseen, johon liitytään wlan0‑liitännän kautta.
+
+- p tarkoittaa probe‑tilaa, eli MDK4 lähettää probe‑pyyntöjä testatakseen tukiaseman (AP:n) vakautta. Probe‑pyynnöt ovat Wi‑Fi‑viestejä, joilla laite kysyy ympäristöstä: “Onko täällä verkkoja?” Näiden avulla voidaan myös paljastaa piilotettuja SSID‑nimiä.
+  
+- -t tarkoittaa target, eli kohdetta – tässä tapauksessa MAC‑osoitetta F0:9F:C2:6A:88:26.
+- -f tarkoittaa file eli tiedostoa; tässä käytin sanalistaa rockyou-top100000.txt bruteforce‑yrityksiä varten.
 
 Komento 
 

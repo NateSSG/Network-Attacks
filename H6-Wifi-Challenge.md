@@ -31,9 +31,22 @@ Komennolla: sudo airodump-ng --band a --essid "wifi-global"# wlan0mon, etsii 5gh
 
 Tehtävä: What is the ESSID of the hidden AP (mac F0:9F:C2:6A:88:26)? 
 
-Ensiksi käytin komentoa airodump-ng wlan0 komentoa, tämä etsii verkkoja wlan0 liitännässä. Tällä kertaa meidän piti etsiä tämän mac osoitteen (mac F0:9F:C2:6A:88:26) vastaava kanava, jotta voidaan eristää skannauksen aluetta.
+Kun komennolla iwconfig wlan0 channel 11 lukitaan langaton verkkokortti kanavalle 11, se alkaa kuunnella ja lähettää liikennettä ainoastaan kyseisellä taajuudella. Tämä on tärkeää esimerkiksi MDK4‑työkalua käytettäessä, koska kohdeverkon majakkakehykset (beacon‑kehykset) lähetetään vain yhdellä, verkkokantapisteen käyttämällä kanavalla. Jos verkkokortti kuuntelisi väärää kanavaa tai hyppisi kanavien välillä, kohdeverkon MAC‑osoitetta ei löydettäisi yhtä nopeasti tai tasaisesti. Kanavan lukitseminen oikeaan taajuuteen varmistaa, että työkalu vastaanottaa kaikki tarvittavat kehykset heti ja pystyy suorittamaan hyökkäyksen nopeammin ja tehokkaammin ilman viivettä, mikä näkyy suurempana pakettinopeutena ja parempana tarkkuutena.
 
 <img width="473" height="295" alt="switching the channel" src="https://github.com/user-attachments/assets/a3a2bf76-b7e9-4901-b300-456b39ada268" />
+
+## Bruteforce  
+
+<img width="771" height="357" alt="bruteforcing " src="https://github.com/user-attachments/assets/e25e4974-34e3-4441-bc99-5bb63a453f29" />
+
+En saanut ESSID:tä. Olin ladannut rockyou.txt myös mutta siinä kesti niin kauan, että päätin vain jättää sen tekemättä, mutta tärkein on, että nyt tiedän miten se toimii :D.
+
+## Mitä komento tekee? 
+
+mdk4 on työkali tämmöiseen bruteforce hommaan niin tässä me kerrotaan että hei bruteforcee tämä mac osoite liitännästä wlan0. P tarkoittaa probe eli lähettää probe‑pyyntöjä testatakseen tukiaseman (AP:n) vakautta; probe‑pyynnöt ovat Wi‑Fi‑viestejä, joilla laite kysyy ympäristöstä “onko täällä verkkoja?”, ja niiden avulla voidaan myös paljastaa piilotettuja SSID‑nimiä. -t tarkoittaa kohdetta (target) eli tässä tapauksessa (F0:9F:C2:6A:88:26). - f tarkoittaa file (tiedostoa), tässä käytin rockyou-top100000.txt tiedostoa.
+
+Komento 
+
 
 Seuraavaksi 
 

@@ -20,12 +20,25 @@ Tehtävä: What is the channel that the wifi-global Access Point is currently us
 
 <img width="1157" height="435" alt="wifi global access point challenge " src="https://github.com/user-attachments/assets/d7b41b2e-2b53-4165-9d7f-46ae20eb45e7" />
 
-Komennolla: sudo airodump-ng --band a --essid "wifi-global"# wlan0mon, etsii 5ghz:llä wifin nimeltä "wifi-globalin" joka näyttää vain sen tiedot. Tehtävänä oli saada millä kanavalla se operoi ja se on 44.
-
+Komennolla sudo airodump-ng --band a --essid "wifi-global" wlan0mon rajoitetaan skannaus 5 GHz:n taajuusalueelle (--band a) ja etsitään näkyviin vain wifi‑global‑nimisen verkon tiedot (--essid). Tehtävän tarkoituksena oli selvittää, millä kanavalla kyseinen Access Point toimii. Komennon tuloksesta nähtiin, että wifi‑global operoi kanavalla 44.
 
 ## Harjoitus 2
 
+Tehtävä: What is the MAC of the wifi-IT client? 
+
+Tehtävässä piti selvittää wifi-IT ‑verkon asiakkaan (clientin) MAC‑osoite. Ensiksi löydettiin verkon BSSID eli sen Access Pointin MAC‑osoite. Sitten käytettiin tätä samaa BSSID:tä airodump‑ng:n taulukossa ja katsottiin, missä rivissä se esiintyy. Rivin vieressä, jossa lukee STATION, näkyvä MAC‑osoite on kyseisen asiakkaan MAC‑osoite.
+
+<img width="1007" height="797" alt="wifi-it mac address" src="https://github.com/user-attachments/assets/fec4e261-cfa8-4729-af45-2051c5b70960" />
+
+
 ## Harjoitus 3
+
+Tehtävä: What is the probe of 78:C1:A7:BF:72:46? 
+
+Tehtävässä tuli selvittää, mitä verkkoa MAC-osoite 78:C1:A7:BF:72:46 etsii. Tämä tapahtui etsimällä airodump-ng-näkymästä kyseinen MAC-osoite STATION-listasta ja katsomalla sen riviltä Probes-sarakkeen arvoa. Probes-sarake kertoo, mitä verkkoa kyseinen laite yrittää etsiä tai mihin se on aiemmin ollut yhteydessä. Tästä sitten selvisi, että se on "wifi-offices"
+
+<img width="872" height="29" alt="challenge 3 find the probe" src="https://github.com/user-attachments/assets/1286d7b6-f60a-4986-9dfa-f427e2cc2e16" />
+
 
 ## Harjoitus 4
 

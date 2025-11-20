@@ -179,6 +179,8 @@ Mikä tarkastettiin: Varmistettiin, että hyökkäysprosessi oli aktiivisessa ti
 
 <img width="648" height="14" alt="command to sniff the packets" src="https://github.com/user-attachments/assets/f4df6de4-e9d6-4a29-b245-6ac64869ea62" />
 
+
+
 Mikä havaittiin: Nähtiin reaaliaikaisesti kuinka tuhansia SYN-paketteja saapui sekunnissa kohdehostiin h1 porttiin 80. Tämä visuaalinen havainnollistus vahvisti hyökkäyksen massiivisen luonteen.
 
 

@@ -102,6 +102,8 @@ Ryu Controllerin Käynnistys:
 
     ryu-manager ryu.app.simple_switch_13
 
+
+
 Mitä tehtiin: Käynnistettiin OpenFlow-säätöohjelma, joka hallinnoi verkon kytkentäelementtejä ja reititystä.
 
 Mininet-verkoston Luonti:
@@ -118,6 +120,9 @@ Mitä tehtiin: Luotiin virtuaaliverkko, jossa on:
 
     Staattiset MAC-osoitteet konfiguraation helpottamiseksi
 
+
+<img width="592" height="524" alt="remote pc terminal" src="https://github.com/user-attachments/assets/2ec6c03b-a4b8-4952-9c8c-91654fbcec45" />
+
 ### 2. Verkon Toiminnan Varmistus
 
 Konnektiivisuuden Testaus
@@ -126,6 +131,8 @@ Konnektiivisuuden Testaus
     *** Results: 0% dropped (6/6 received)
 
 Mitä tehtiin: Testattiin kaikkien hostien välistä yhteyttä. 0% häviötä vahvisti, että verkko oli täysin toiminnassa ja kaikki hostit pystyvät kommunikoimaan keskenään.
+
+<img width="416" height="116" alt="pingall command " src="https://github.com/user-attachments/assets/978c2915-56ed-4502-a7ef-e3fc5d3e15a1" />
 
 
 ### 3. Kohdepalvelimen Käyttöönotto
@@ -141,6 +148,8 @@ Palvelimen Toiminnan Varmistus
     h2 curl http://10.0.0.1
 
 Mitä tehtiin: Hostista h2 testattiin HTTP-yhteyttä kohteeseen 10.0.0.1 (h1). Onnistunut HTML-dokumentin palautus varmisti, että palvelin vastasi normaalisti ennen hyökkäystä.
+
+<img width="867" height="538" alt="image" src="https://github.com/user-attachments/assets/bf5ee9df-2aac-4e39-96a4-f951fc9f38f1" />
 
 ### 4. SYN-Flood Hyökkäyksen Toteutus
 
@@ -168,7 +177,22 @@ Tulokset:
 
     root        6649 98.4% CPU - hping3 -S --flood -p 80 10.0.0.1
 
-Mikä tarkastettiin: Varmistettiin, että hyökkäysprosessi oli aktiivisessa tilassa ja käytti 98.4% CPU:sta, mikä osoitti hyökkäyksen olevan täydessä käynnissä.
+Mikä tarkastettiin: Varmistettiin, että hyökkäysprosessi oli aktiivisessa tilassa ja käytti 99.0% CPU:sta, mikä osoitti hyökkäyksen olevan täydessä käynnissä.
+
+<img width="913" height="139" alt="image" src="https://github.com/user-attachments/assets/0db74d67-6d66-4a1b-a6c7-5de2b704c720" />
+
+
+## Xterm ongelma
+
+Larin laatimassa pdf tiedostossa liittyen tähän tehtävään oli selkeet ohjeet miten saada xterm toimimaan:
+
+        Jos Xterm auheuttaa ongelmia niin
+        2. Aja scripti ./get_xauth.sh
+        Se palauttaa jotain tämän näköistä
+        mininet-vm/unix:10 MIT-MAGIC-COOKIE-1 22ce67f9c6514c99d2903e2b9d97e496
+        3. Kopioi tämä ja aja seuraava komento
+        sudo -s xauth add mininet-vm/unix:10 MIT-MAGIC-COOKIE-1 22ce67f9c6514c99d2903e2b9d97e496
+        4. Tämän jälkeen xtermin pitäisi toimia mininetissä.
 
 ### 5. Reaaliaikainen Pakettien Visualisointi
 
@@ -176,19 +200,31 @@ Mikä tarkastettiin: Varmistettiin, että hyökkäysprosessi oli aktiivisessa ti
     # Ja sitten h1-terminaalissa:
     tcpdump -i h2-eth0 -n "tcp[tcpflags] == tcp-syn and dst host 10.0.0.1"
 
-
-<img width="648" height="14" alt="command to sniff the packets" src="https://github.com/user-attachments/assets/f4df6de4-e9d6-4a29-b245-6ac64869ea62" />
-
+<img width="523" height="407" alt="image" src="https://github.com/user-attachments/assets/345fa17c-4774-485b-b613-9cc44575c3d0" />
 
 
-Mikä havaittiin: Nähtiin reaaliaikaisesti kuinka tuhansia SYN-paketteja saapui sekunnissa kohdehostiin h1 porttiin 80. Tämä visuaalinen havainnollistus vahvisti hyökkäyksen massiivisen luonteen.
+Mitä havaittiin: Nähtiin reaaliaikaisesti kuinka tuhansia SYN-paketteja saapui sekunnissa kohdehostiin h1 porttiin 80. Tämä visuaalinen havainnollistus vahvisti hyökkäyksen massiivisen luonteen.
 
 
-<img width="592" height="524" alt="remote pc terminal" src="https://github.com/user-attachments/assets/2ec6c03b-a4b8-4952-9c8c-91654fbcec45" />
 
-<img width="416" height="116" alt="pingall command " src="https://github.com/user-attachments/assets/978c2915-56ed-4502-a7ef-e3fc5d3e15a1" />
+<img width="225" height="47" alt="packets captured" src="https://github.com/user-attachments/assets/1b5ec4e9-d8cf-4c12-b38c-5c8f303375e3" />
 
-<img width="867" height="538" alt="image" src="https://github.com/user-attachments/assets/bf5ee9df-2aac-4e39-96a4-f951fc9f38f1" />
 
-<img width="913" height="139" alt="image" src="https://github.com/user-attachments/assets/0db74d67-6d66-4a1b-a6c7-5de2b704c720" />
+<img width="609" height="730" alt="the packet flood in action" src="https://github.com/user-attachments/assets/28eec388-35a6-4535-a197-88c3af8e7416" />
+
+SYN-Flood hyökkäyksiä ehkäistään parhaiten monipuolisella lähestymistavalla: palvelimilla käytetään SYN cookies -tekniikkaa, joka estää yhteyksien muistin täyttymisen; verkkolaitteissa konfiguroidaan rate limiting rajoittamaan SYN-pakettien määrää; palomuurit suodattavat epäilyttävän liikenteen; ja ISP-tasolla käytetään blackholingia haitallisen liikenteen kohdentamiseksi. Yhdistelmä näistä menetelmistä luo robustin puolustuksen, joka kykenee torjumaan jopa laajamittaisia DDoS-hyökkäyksiä.
+
+
+## Lähteet
+
+https://www.sciencedirect.com/science/article/pii/S2352340925000460, 
+
+https://github.com/kgretzky/evilginx2, 
+
+https://hhmoodle.haaga-helia.fi/pluginfile.php/4347169/mod_resource/content/1/03-mininet.pdf, 
+
+
+
+
+
 

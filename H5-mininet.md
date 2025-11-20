@@ -160,6 +160,27 @@ Mitä tehtiin: Hostissa h2 käynnistettiin SYN-Flood hyökkäys:
 
 - &: Suoritettiin taustalla
 
+Hyökkäyksen Monitorointi
+
+    h2 ps aux | grep hping3
+
+Tulokset:
+
+    root        6649 98.4% CPU - hping3 -S --flood -p 80 10.0.0.1
+
+Mikä tarkastettiin: Varmistettiin, että hyökkäysprosessi oli aktiivisessa tilassa ja käytti 98.4% CPU:sta, mikä osoitti hyökkäyksen olevan täydessä käynnissä.
+
+### 5. Reaaliaikainen Pakettien Visualisointi
+
+    xterm h1
+    # Ja sitten h1-terminaalissa:
+    tcpdump -i h2-eth0 -n "tcp[tcpflags] == tcp-syn and dst host 10.0.0.1"
+
+
+<img width="648" height="14" alt="command to sniff the packets" src="https://github.com/user-attachments/assets/f4df6de4-e9d6-4a29-b245-6ac64869ea62" />
+
+Mikä havaittiin: Nähtiin reaaliaikaisesti kuinka tuhansia SYN-paketteja saapui sekunnissa kohdehostiin h1 porttiin 80. Tämä visuaalinen havainnollistus vahvisti hyökkäyksen massiivisen luonteen.
+
 
 <img width="592" height="524" alt="remote pc terminal" src="https://github.com/user-attachments/assets/2ec6c03b-a4b8-4952-9c8c-91654fbcec45" />
 

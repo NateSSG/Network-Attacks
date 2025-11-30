@@ -115,4 +115,7 @@ Voit lukea koko artikkelin näin: päivitä sivu, paina heti perään CTRL + A j
 ## Lähteet
 
 https://www.wired.com/story/hid-keycard-authentication-key-vulnerability/,
-https://chat.deepseek.com/
+
+https://chat.deepseek.com/,
+
+https://bishopfox.com/tools/rfid-hacking-2/attack-tools

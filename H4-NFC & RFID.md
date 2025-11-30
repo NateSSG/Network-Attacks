@@ -95,3 +95,24 @@ Vastaus edelliseen READ BINARY -komentoon voisi olla:
 
 90 00 = SW1 SW2 (Success! Kaikki meni hyvin)
 
+## Tutki ja kerro minkä mielenkiintoisen RFID hakkerointi uutiset löysit. (Vinkki, useimmat liittyvät henkilökortteihin)
+
+DEF CON -konferenssin "Wall of Sheep" ja Henkilökortin Kloonaus (2022 & recurring)
+
+### Mitä tapahtui? 
+DEF CON on maailman suurin hakkerikonferenssi. Ironisesti, juuri tällä tapahtumalla jaettuja RFID-pääsykortteja on hakkeroitu toistuvasti. Vuonna 2022 tutkijat osoittivat, että konferenssin omaa korttia pystyi kloonaamaan halvalla, yleisesti saatavilla olevalla lukijalla/lukijalaitteella.
+
+### Kuinka se tehtiin:
+
+He löysivät kortin salasanan (joka oli sama kaikille korteille) ja käyttivät sita kirjoittaakseen dataa korttiin. Tämä mahdollisti kloonauksen, mutta heidän mielenkiintoisin havaintonsa oli kyky muuttaa kortin näyttämää nimeä. He muuttivat omansa näyttämään "Älä Trusta Minua" ("Don't Trust Me"), korostaen, että vaikka fyysinen pääsy oli mahdollista, korttia ei voinut luottaa digitaalisesti.
+
+### Miksi mielenkiintoinen? 
+
+Tapahtuma korostaa turvallisuuskettejä heikointa lenkkiä: ihmistä ja hänen fyysistä korttiaan. Vaikka järjestelmä itsessään oli turvallinen, kortin kloonaaminen antoi pääsyn fyysiseen tilaan. Se on klassinen esimerkki siitä, miten RFID-turva rikotaan usein sosiaalisen tekniikan ja matalan tason laitetekniikan yhdistelmällä.
+
+Voit lukea koko artikkelin näin: päivitä sivu, paina heti perään CTRL + A ja sitten CTRL + C. Liitä teksti vaikka muistioon (Notepad) ja lue se sieltä. :D https://www.wired.com/story/hid-keycard-authentication-key-vulnerability/
+
+## Lähteet
+
+https://www.wired.com/story/hid-keycard-authentication-key-vulnerability/,
+https://chat.deepseek.com/

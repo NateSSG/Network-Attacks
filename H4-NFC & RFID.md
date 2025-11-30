@@ -14,7 +14,7 @@ Disk: 1000 GB
 
 Network: NAT
 
-## 1. Tarkastelen käytössäni olevia RFID-tuotteita ja suojautumistani
+## 1. Tarkastele käytössäsi olevia RFID-tuotteita ja suojautumistasi
 
 - Tilanteeni: En ole käytännössä lainkaan suojautunut RFID-urkinnalta.
 

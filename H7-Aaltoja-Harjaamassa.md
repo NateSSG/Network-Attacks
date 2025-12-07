@@ -14,7 +14,7 @@ Disk: 35 GB
 
 Network: NAT
 
-### Tiivistelmä
+### Lue ja Tiivistä
 
 - 433 MHz taajuus on yleinen matalatehoisille kaukosäätimille ja sääasemille.
 
@@ -30,16 +30,17 @@ Network: NAT
 
 ### A) WebSDR
 
+<img width="736" height="358" alt="image" src="https://github.com/user-attachments/assets/fe84839d-d753-446c-b576-806f85c95805" />
+
+
 <img width="1365" height="835" alt="image" src="https://github.com/user-attachments/assets/1a7d2de5-26a1-492c-9027-7899e0cee05d" />
 
-Jos zoomaa vesiputoukseen, siinä näkyy tarkemmin että mitä ohjelmia pyörii tietyillä kanavilla
+Käytin WebSDR-etävastaanotinta ja viritin vastaanottimen taajuudelle 6070 kHz, joka on julkinen lyhytaaltoradiolähetys. WebSDR ilmoitti modulaatioksi AM (Amplitude Modulation), mikä on tyypillinen lyhytaaltolähetysten modulaatiomuoto. Aallonpituus taajuudelle 6070 kHz on noin 49,4 metriä, laskettuna kaavalla λ = c / f. Löysin lähetyksen säätämällä vastaanottimen HF-alueelle (3–30 MHz), skannaamalla vesiputousnäkymää ja valitsemalla voimakkaan signaalin kohdalta 6070 kHz. Kun modulaatioksi asetettiin AM, radion julkinen ohjelmasisältö alkoi kuulua kaiuttimista. Otin ruutukaappauksen asetuksista ja signaalin näkyvyydestä Waterfall-näkymässä.
 
 <img width="1203" height="201" alt="image" src="https://github.com/user-attachments/assets/da943b7b-ab50-4699-9904-6ece157c49bd" />
 
+Jos zoomaa vesiputoukseen, siinä näkyy tarkemmin että mitä ohjelmia pyörii tietyillä kanavilla.
 
-
-
-Käytin WebSDR-etävastaanotinta ja viritin vastaanottimen taajuudelle 6070 kHz, joka on julkinen lyhytaaltoradiolähetys. WebSDR ilmoitti modulaatioksi AM (Amplitude Modulation), mikä on tyypillinen lyhytaaltolähetysten modulaatiomuoto. Aallonpituus taajuudelle 6070 kHz on noin 49,4 metriä, laskettuna kaavalla λ = c / f. Löysin lähetyksen säätämällä vastaanottimen HF-alueelle (3–30 MHz), skannaamalla vesiputousnäkymää ja valitsemalla voimakkaan signaalin kohdalta 6070 kHz. Kun modulaatioksi asetettiin AM, radion julkinen ohjelmasisältö alkoi kuulua kaiuttimista. Otin ruutukaappauksen asetuksista ja signaalin näkyvyydestä Waterfall-näkymässä.
 
 ### B) rtl_433
 
@@ -101,7 +102,7 @@ Tässä käytin apuna tunnilla käytyjä komentoja läpi.
 
 <img width="287" height="55" alt="urh launch" src="https://github.com/user-attachments/assets/35ed8c53-0833-43d8-87ff-04347eca9ac5" />
 
-### F & G) Tarkastele näytettä
+### F) Tarkastele näytettä
 
 <img width="1696" height="859" alt="radio hacker interface" src="https://github.com/user-attachments/assets/6fef0adc-bf61-4579-96e8-afcf3425618c" />
 
@@ -116,6 +117,72 @@ Silmämääräisesti URH:ssa signaali näyttää tyypilliseltä ASK/OOK-pohjaise
 <img width="1694" height="870" alt="urh stuff" src="https://github.com/user-attachments/assets/247d4dda-b4d5-4409-94f1-1eeb94f0c849" />
 
 Signaalidata koostuu pitkiä bittijonoja sisältävistä pulssijonoista (“10100000…”), jotka toistuvat useita kertoja.
+
+### G) Bittistä
+
+<img width="1683" height="642" alt="sample thingy" src="https://github.com/user-attachments/assets/67faa248-2427-4ee6-b4cb-da72dede0337" />
+
+<img width="783" height="143" alt="ASCII data" src="https://github.com/user-attachments/assets/3f171ecd-4dfe-409b-b644-a53985096855" />
+
+<img width="1407" height="58" alt="pause samples" src="https://github.com/user-attachments/assets/8681fca1-1b2d-4475-b4ed-f5b1cd4bd22f" />
+
+URH näyttää demoduloidun bittijonon raakabitteinä (1 ja 0), jotka on johdettu ASK/OOK-modulaatiosta.
+
+Tämän jälkeen URH näyttää:
+
+[Pause: 19965 samples]
+
+
+Tämä “Pause” tarkoittaa, että signaalissa oli hiljaisuutta = lähetys ei ollut päällä.
+
+### 2. Miksi “Pause” on tärkeä?
+
+Koska tauon pituus kertoo:
+
+- missä paketti (frame) loppuu
+
+- milloin uusi paketti alkaa
+
+- mikä on lähetyksen toistotahti (samalla logiikalla kuin kaukosäätimissä)
+
+Esimerkiksi:
+
+- Pause: 19965 samples
+
+- Sample rate: 2 MSps
+
+- Aika = 19965 / 2 000 000 = 0,00998 s = noin 10 ms
+
+Eli tässä signaali on hiljaa noin 10 millisekuntia bittijonojen välissä.
+
+### 3. Mitä tämä kertoo bittitasosta?
+
+Se kertoo, että signaali koostuu toistuvista paketeista, joissa:
+
+- ensin tulee pitkä bittijono (raakabitit)
+
+- sitten on 10 ms tauko
+
+- sitten sama tai hieman muokattu bittijono lähetetään uudestaan
+
+Tämä on täysin normaalia esim.
+433 MHz kaukosäätimille
+Ovikelloille
+Plug-on/off-saksalaisille (KlikAanKlikUit jne.)
+
+Lähetin toistaa paketin 3–10 kertaa, jotta vastaanotin varmasti kuulee sen.
+
+Tiivistelmä: URH:n bittinäkymä tuottaa ASK/OOK-modulaatiosta saadut raakabitit pitkinä 1- ja 0-sekvensseinä. Näiden sekvenssien välissä näkyvät “Pause”-kohdat, joiden pituus on noin 10 ms. Nämä tauot eivät ole bittien osa, vaan ne kertovat pakettien (framejen) välisestä hiljaisuudesta. Lähetin toistaa saman bittikehyksen useita kertoja, ja 10 ms tauko erottaa nämä toistot toisistaan.
+
+## Lähteet
+
+https://www.onetransistor.eu/2022/01/decode-433mhz-ask-signal.html,
+
+https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/#h7-aaltoja-harjaamassa,
+
+https://www.youtube.com/watch?v=sbqMqb6FVMY&t=199s, 
+
+http://websdr.ewi.utwente.nl:8901/
 
 
 

@@ -35,7 +35,7 @@ Network: NAT
 
 <img width="1365" height="835" alt="image" src="https://github.com/user-attachments/assets/1a7d2de5-26a1-492c-9027-7899e0cee05d" />
 
-Käytin WebSDR-etävastaanotinta ja viritin vastaanottimen taajuudelle 6070 kHz, joka on julkinen lyhytaaltoradiolähetys. WebSDR ilmoitti modulaatioksi AM (Amplitude Modulation), mikä on tyypillinen lyhytaaltolähetysten modulaatiomuoto. Aallonpituus taajuudelle 6070 kHz on noin 49,4 metriä, laskettuna kaavalla λ = c / f. Löysin lähetyksen säätämällä vastaanottimen HF-alueelle (3–30 MHz), skannaamalla vesiputousnäkymää ja valitsemalla voimakkaan signaalin kohdalta 6070 kHz. Kun modulaatioksi asetettiin AM, radion julkinen ohjelmasisältö alkoi kuulua kaiuttimista. Otin ruutukaappauksen asetuksista ja signaalin näkyvyydestä Waterfall-näkymässä.
+Käytin WebSDR-etävastaanotinta ja viritin vastaanottimen taajuudelle 6070 kHz, joka on julkinen lyhytaaltoradiolähetys. Valitsin modulaatioksi AM (Amplitude Modulation), mikä on tyypillinen lyhytaaltolähetysten modulaatiomuoto. Aallonpituus taajuudelle 6070 kHz on noin 49,4 metriä, laskettuna kaavalla λ = c / f. Löysin lähetyksen säätämällä vastaanottimen HF-alueelle (3–30 MHz), skannaamalla vesiputousnäkymää ja valitsemalla voimakkaan signaalin kohdalta 5970.37 kHz. Kun modulaatioksi asetettiin AM, radion julkinen ohjelmasisältö alkoi kuulua kaiuttimista. Otin ruutukaappauksen asetuksista ja signaalin näkyvyydestä Waterfall-näkymässä.
 
 <img width="1203" height="201" alt="image" src="https://github.com/user-attachments/assets/da943b7b-ab50-4699-9904-6ece157c49bd" />
 
